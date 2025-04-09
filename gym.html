@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitConnect - Complete Fitness Solution</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --dark: #292f36;
+            --light: #f7fff7;
+            --accent: #ffd166;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            color: var(--accent);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .document-card {
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .document-card img {
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .file-upload {
+            border: 2px dashed #dee2e6;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .file-upload:hover {
+            border-color: var(--primary);
+            background-color: rgba(255, 107, 107, 0.05);
+        }
+        
+        .timetable th {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .timetable .table-primary {
+            background-color: rgba(255, 214, 102, 0.3);
+        }
+        
+        .diet-tab {
+            border-bottom: 3px solid transparent;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        
+        .diet-tab.active {
+            border-bottom-color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .auth-card {
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary);
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Fit<span>Connect</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#timetable">Timetable</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#diet">Diet Plans</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#register" data-bs-toggle="modal">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#login" data-bs-toggle="modal">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center" id="home">
+        <div class="container text-center">
+            <h1 class="display-3 fw-bold mb-4">Transform Your Fitness Journey</h1>
+            <p class="lead mb-5">Join 50,000+ members burning calories, breaking limits, and building habits</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#quiz" class="btn btn-primary btn-lg px-4">Take Our Fitness Quiz</a>
+                <a href="#register" class="btn btn-outline-light btn-lg px-4" data-bs-toggle="modal">Free 7-Day Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Why Choose FitConnect?</h2>
+                <p class="lead text-muted">The complete fitness solution for everyone</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Live & On-Demand</h3>
+                        <p class="text-muted">1000+ workouts for all fitness levels with expert trainers</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Coaching</h3>
+                        <p class="text-muted">Personalized recommendations and form correction</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community</h3>
+                        <p class="text-muted">Compete with friends and earn rewards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitness Quiz -->
+    <section class="py-5 bg-primary text-white" id="quiz">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Find Your Perfect Workout</h2>
+                    <p class="lead">Answer a few quick questions and we'll create a personalized fitness plan just for you</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card text-dark">
+                        <div class="card-body p-4">
+                            <h5 class="card-title mb-4">What's your #1 fitness goal?</h5>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <button class="btn btn-outline-primary">⚡ Weight Loss</button>
+                                <button class="btn btn-outline-primary">💪 Muscle Gain</button>
+                                <button class="btn btn-outline-primary">🧘‍♂️ Flexibility</button>
+                                <button class="btn btn-outline-primary">🏃‍♂️ Endurance</button>
+                            </div>
+                            
+                            <h5 class="card-title mb-4">How often can you workout?</h5>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <button class="btn btn-outline-primary">🐢 2x/week</button>
+                                <button class="btn btn-outline-primary">🚀 5x/week</button>
+                                <button class="btn btn-outline-primary">🌟 Daily</button>
+                            </div>
+                            
+                            <h5 class="card-title mb-4">Pick your vibe:</h5>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button class="btn btn-outline-primary">🧘 Yoga Zen</button>
+                                <button class="btn btn-outline-primary">🔥 HIIT Beast</button>
+                                <button class="btn btn-outline-primary">🏠 Home Minimalist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timetable Section -->
+    <section class="py-5" id="timetable">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Weekly Class Schedule</h2>
+                <p class="lead text-muted">Join our live classes or watch on-demand</p>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="table table-bordered timetable">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                            <th>Sunday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>6:00 AM</td>
+                            <td>Yoga</td>
+                            <td>HIIT</td>
+                            <td>Pilates</td>
+                            <td>Cycling</td>
+                            <td>Zumba</td>
+                            <td>Bootcamp</td>
+                            <td>Rest Day</td>
+                        </tr>
+                        <tr>
+                            <td>8:00 AM</td>
+                            <td>Pilates</td>
+                            <td>Strength</td>
+                            <td>Yoga</td>
+                            <td>HIIT</td>
+                            <td>Cycling</td>
+                            <td>Yoga</td>
+                            <td>Rest Day</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td>Core</td>
+                            <td>Boxing</td>
+                            <td>Strength</td>
+                            <td>Pilates</td>
+                            <td>Yoga</td>
+                            <td>HIIT</td>
+                            <td>Rest Day</td>
+                        </tr>
+                        <tr>
+                            <td>6:00 PM</td>
+                            <td class="table-primary">HIIT (Live)</td>
+                            <td>Cycling</td>
+                            <td class="table-primary">Yoga (Live)</td>
+                            <td>Strength</td>
+                            <td class="table-primary">Zumba (Live)</td>
+                            <td>Meditation</td>
+                            <td>Rest Day</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diet Plans Section -->
+    <section class="py-5 bg-light" id="diet">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Gym Diet Plans</h2>
+                <p class="lead text-muted">Nutrition plans tailored to your goals</p>
+            </div>
+            
+            <ul class="nav nav-pills justify-content-center mb-4">
+                <li class="nav-item">
+                    <a class="nav-link active diet-tab" data-bs-toggle="pill" href="#weight-loss">Weight Loss</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link diet-tab" data-bs-toggle="pill" href="#muscle-gain">Muscle Gain</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link diet-tab" data-bs-toggle="pill" href="#balanced">Balanced</a>
+                </li>
+            </ul>
+            
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="weight-loss">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Breakfast (8:00 AM)</h5>
+                                    <p class="card-text">Oatmeal with berries + 2 boiled eggs + Green tea</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Mid-Morning (11:00 AM)</h5>
+                                    <p class="card-text">Handful of almonds + 1 apple</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Lunch (1:30 PM)</h5>
+                                    <p class="card-text">Grilled chicken + Quinoa + Steamed vegetables</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Dinner (7:30 PM)</h5>
+                                    <p class="card-text">Grilled fish + Sweet potato + Salad</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="muscle-gain">
+                    <!-- Muscle gain diet content -->
+                </div>
+                
+                <div class="tab-pane fade" id="balanced">
+                    <!-- Balanced diet content -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Challenge -->
+    <section class="py-5">
+        <div class="container">
+            <div class="card border-0 shadow">
+                <div class="card-body p-4 p-md-5">
+                    <div class="row align-items-center">
+                        <div class="col-md-8 mb-4 mb-md-0">
+                            <h3 class="fw-bold mb-3">This week's challenge: 10,000 squats collectively!</h3>
+                            <div class="progress mb-3" style="height: 20px;">
+                                <div class="progress-bar" style="width: 35%;">35%</div>
+                            </div>
+                            <p class="mb-0">You've logged 350 squats – keep going! Tag a friend to duel 🥊</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <button class="btn btn-primary btn-lg">Join Challenge</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="login" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content auth-card">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Login to Your Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                        <div class="text-center">
+                            <p class="mb-0">Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#register" data-bs-dismiss="modal">Register here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal with Document Verification -->
+    <div class="modal fade" id="register" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content auth-card">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">Create Your Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-pills mb-4 justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="pill" href="#step1">1. Personal Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#step2">2. Documents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#step3">3. Payment</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content">
+                        <!-- Step 1: Personal Info -->
+                        <div class="tab-pane fade show active" id="step1">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Password</label>
+                                        <input type="password" class="form-control" required>
+                                        <small class="text-muted">Minimum 8 characters with 1 number</small>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Confirm Password</label>
+                                        <input type="password" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="d-grid">
+                                    <a class="btn btn-primary" data-bs-toggle="pill" href="#step2">Next: Document Verification</a>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Step 2: Document Verification -->
+                        <div class="tab-pane fade" id="step2">
+                            <h6 class="mb-4">Identity Verification</h6>
+                            <p class="text-muted mb-4">For your security and to comply with gym membership requirements, please upload the following documents:</p>
+                            
+                            <div class="mb-4">
+                                <label class="form-label">Government ID Proof</label>
+                                <div class="file-upload mb-2" onclick="document.getElementById('idProof').click()">
+                                    <div class="fs-1 mb-2">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <p class="mb-1">Upload Aadhar Card, Passport, or Driver's License</p>
+                                    <small class="text-muted">Max file size: 5MB (JPG, PNG or PDF)</small>
+                                    <input type="file" id="idProof" class="d-none" accept="image/*,.pdf">
+                                </div>
+                                <div class="row" id="idProofPreview"></div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="form-label">Address Proof</label>
+                                <div class="file-upload mb-2" onclick="document.getElementById('addressProof').click()">
+                                    <div class="fs-1 mb-2">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <p class="mb-1">Upload Utility Bill, Rental Agreement or Bank Statement</p>
+                                    <small class="text-muted">Max file size: 5MB (JPG, PNG or PDF)</small>
+                                    <input type="file" id="addressProof" class="d-none" accept="image/*,.pdf">
+                                </div>
+                                <div class="row" id="addressProofPreview"></div>
+                            </div>
+                            
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+                                <a class="btn btn-outline-secondary" data-bs-toggle="pill" href="#step1">Back</a>
+                                <a class="btn btn-primary" data-bs-toggle="pill" href="#step3">Next: Payment</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Payment -->
+                        <div class="tab-pane fade" id="step3">
+                            <h6 class="mb-4">Select Membership Plan</h6>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-4">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Basic Plan</h5>
+                                            <h3 class="text-primary">₹999<small class="text-muted fs-6">/month</small></h3>
+                                            <ul class="list-unstyled mt-3 mb-4">
+                                                <li><i class="fas fa-check text-success me-2"></i> Group Classes</li>
+                                                <li><i class="fas fa-check text-success me-2"></i> Basic Facilities</li>
+                                                <li><i class="fas fa-times text-danger me-2"></i> Personal Trainer</li>
+                                            </ul>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="membershipPlan" checked>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Other plans -->
+                            </div>
+                            
+                            <h6 class="mb-3">Payment Information</h6>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label">Card Number</label>
+                                    <input type="text" class="form-control" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Expiry Date</label>
+                                    <input type="text" class="form-control" placeholder="MM/YY">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">CVV</label>
+                                    <input type="text" class="form-control" placeholder="123">
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" required>
+                                        <label class="form-check-label">I agree to the Terms & Conditions</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-between mt-4">
+                                <a class="btn btn-outline-secondary" data-bs-toggle="pill" href="#step2">Back</a>
+                                <button class="btn btn-primary">Complete Registration</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="fw-bold mb-3">FitConnect</h5>
+                    <p>Your complete fitness solution with personalized training, nutrition plans, and community support.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Classes</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Support</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Contact</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">FAQs</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Privacy</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="fw-bold mb-3">Newsletter</h5>
+                    <p>Subscribe for fitness tips and special offers</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 FitConnect. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Document upload preview functionality
+        function setupFileUpload(inputId, previewId) {
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+            
+            input.addEventListener('change', function(e) {
+                preview.innerHTML = '';
+                
+                Array.from(e.target.files).forEach(file => {
+                    const col = document.createElement('div');
+                    col.className = 'col-6 col-md-4';
+                    
+                    const card = document.createElement('div');
+                    card.className = 'document-card';
+                    
+                    if (file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            card.innerHTML = `
+                                <img src="${event.target.result}" class="w-100" alt="${file.name}">
+                                <div class="p-2">
+                                    <small class="d-block text-truncate">${file.name}</small>
+                                    <button class="btn btn-sm btn-danger w-100 mt-2" onclick="this.parentElement.parentElement.parentElement.remove()">
+                                        <i class="fas fa-trash me-1"></i> Remove
+                                    </button>
+                                </div>
+                            `;
+                            col.appendChild(card);
+                            preview.appendChild(col);
+                        };
+                        reader.readAsDataURL(file);
+                    } else if (file.type === 'application/pdf') {
+                        card.innerHTML = `
+                            <div class="text-center p-3 bg-light">
+                                <i class="fas fa-file-pdf fs-1 text-danger"></i>
+                            </div>
+                            <div class="p-2">
+                                <small class="d-block text-truncate">${file.name}</small>
+                                <button class="btn btn-sm btn-danger w-100 mt-2" onclick="this.parentElement.parentElement.parentElement.remove()">
+                                    <i class="fas fa-trash me-1"></i> Remove
+                                </button>
+                            </div>
+                        `;
+                        col.appendChild(card);
+                        preview.appendChild(col);
+                    }
+                });
+            });
+        }
+        
+        // Initialize file uploads
+        setupFileUpload('idProof', 'idProofPreview');
+        setupFileUpload('addressProof', 'addressProofPreview');
+        
+        // Enable tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>
